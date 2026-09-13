@@ -1,1 +1,379 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Raisa Shopy | Online Shopping</title> <style> *{box-sizing:border-box;margin:0;padding:0} body{ font-family:Arial,sans-serif; background:#f7f7f8; color:#171717; } .top{ background:#111; color:white; text-align:center; padding:8px; font-size:13px; } header{ background:white; box-shadow:0 2px 12px rgba(0,0,0,.08); position:sticky; top:0; z-index:10; } .nav{ max-width:1200px; margin:auto; padding:17px 20px; display:flex; align-items:center; gap:20px; } .logo{ font-size:27px; font-weight:800; white-space:nowrap; } .logo span{color:#d12b72} .search{ flex:1; display:flex; background:#f1f1f3; border-radius:10px; overflow:hidden; } .search input{ flex:1; border:0; background:transparent; padding:13px; outline:none; } .search button{ border:0; background:#d12b72; color:white; padding:0 18px; } .links{ display:flex; gap:18px; font-weight:bold; } .links a{ text-decoration:none; color:#222; } .hero{ max-width:1200px; margin:28px auto; padding:55px 45px; border-radius:24px; background:linear-gradient(120deg,#fff0f6,#eee8ff); display:flex; align-items:center; justify-content:space-between; } .hero small{ color:#d12b72; font-weight:bold; } .hero h1{ font-size:48px; line-height:1.08; margin:10px 0 15px; } .hero p{ color:#666; max-width:520px; line-height:1.6; font-size:17px; } .btn{ display:inline-block; margin-top:20px; background:#d12b72; color:white; padding:14px 25px; border-radius:10px; text-decoration:none; font-weight:bold; } .hero-icon{ font-size:120px; } section{ max-width:1200px; margin:40px auto; padding:0 20px; } .title{ display:flex; justify-content:space-between; margin-bottom:20px; } .title h2{font-size:27px} .grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; } .category{ background:white; padding:28px 15px; border-radius:16px; text-align:center; font-weight:bold; box-shadow:0 4px 18px rgba(0,0,0,.06); } .category div{ font-size:48px; margin-bottom:10px; } .product{ background:white; border-radius:16px; overflow:hidden; box-shadow:0 4px 18px rgba(0,0,0,.07); } .product-image{ height:210px; background:#f0f0f3; display:grid; place-items:center; font-size:75px; } .product-info{ padding:16px; } .product-info h3{ margin-bottom:8px; } .price{ font-size:20px; font-weight:bold; margin:8px 0; } .whatsapp{ display:block; text-align:center; background:#20a64a; color:white; padding:11px; border-radius:9px; text-decoration:none; font-weight:bold; } .features{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; } .feature{ background:white; padding:25px; border-radius:15px; } .feature p{ color:#666; line-height:1.5; margin-top:8px; } footer{ background:#111; color:white; margin-top:50px; padding:40px 20px; } .footer{ max-width:1200px; margin:auto; display:flex; justify-content:space-between; } .muted{ color:#aaa; margin-top:10px; } @media(max-width:800px){ .links{display:none} .search{display:none} .hero{ margin:15px; padding:35px 25px; } .hero h1{font-size:36px} .hero-icon{font-size:70px} .grid{ grid-template-columns:repeat(2,1fr); } .features{ grid-template-columns:1fr; } .footer{ display:block; } } </style> </head> <body> <div class="top"> 🇸🇦 Welcome to Raisa Shopy • Prices in SAR </div> <header> <div class="nav"> <div class="logo"> Raisa <span>Shopy</span> </div> <div class="search"> <input id="search" type="text" placeholder="Search products..." onkeyup="searchProducts()"> <button>🔎</button> </div> <div class="links"> <a href="#">Home</a> <a href="#shop">Shop</a> <a href="#categories">Categories</a> <a href="#contact">Contact</a> </div> </div> </header> <div class="hero"> <div> <small>WELCOME TO RAISA SHOPY</small> <h1> Shop Smart.<br> Shop Beautiful. </h1> <p> Discover clothes, electronics, cosmetics and more. Easy shopping with direct WhatsApp ordering. </p> <a class="btn" href="#shop"> Shop Now → </a> </div> <div class="hero-icon"> 🛍️ </div> </div> <section id="categories"> <div class="title"> <h2>Shop by Category</h2> </div> <div class="grid"> <div class="category"> <div>👗</div> Clothes </div> <div class="category"> <div>📱</div> Electronics </div> <div class="category"> <div>💄</div> Cosmetics </div> <div class="category"> <div>✨</div> More Products </div> </div> </section> <section id="shop"> <div class="title"> <h2>Featured Products</h2> </div> <div class="grid" id="products"> <div class="product" data-name="Elegant Fashion Dress"> <div class="product-image">👗</div> <div class="product-info"> <h3>Elegant Fashion Dress</h3> <div class="price">SAR 89</div> <a class="whatsapp" href="https://wa.me/966538963076?text=Hello%20Raisa%20Shopy%2C%20I%20want%20to%20order%20Elegant%20Fashion%20Dress" target="_blank"> Order on WhatsApp </a> </div> </div> <div class="product" data-name="Wireless Headphones"> <div class="product-image">🎧</div> <div class="product-info"> <h3>Wireless Headphones</h3> <div class="price">SAR 129</div> <a class="whatsapp" href="https://wa.me/966538963076?text=Hello%20Raisa%20Shopy%2C%20I%20want%20to%20order%20Wireless%20Headphones" target="_blank"> Order on WhatsApp </a> </div> </div> <div class="product" data-name="Beauty Essentials"> <div class="product-image">💄</div> <div class="product-info"> <h3>Beauty Essentials</h3> <div class="price">SAR 59</div> <a class="whatsapp" href="https://wa.me/966538963076?text=Hello%20Raisa%20Shopy%2C%20I%20want%20to%20order%20Beauty%20Essentials" target="_blank"> Order on WhatsApp </a> </div> </div> <div class="product" data-name="Smart Watch"> <div class="product-image">⌚</div> <div class="product-info"> <h3>Smart Watch</h3> <div class="price">SAR 149</div> <a class="whatsapp" href="https://wa.me/966538963076?text=Hello%20Raisa%20Shopy%2C%20I%20want%20to%20order%20Smart%20Watch" target="_blank"> Order on WhatsApp </a> </div> </div> </div> </section> <section> <div class="features"> <div class="feature"> 🚚 <b>Easy Ordering</b> <p> Order your favorite products directly through WhatsApp. </p> </div> <div class="feature"> 💰 <b>SAR Pricing</b> <p> All prices are displayed in Saudi Riyal. </p> </div> <div class="feature"> ⭐ <b>Quality Shopping</b> <p> Enjoy a clean and professional shopping experience. </p> </div> </div> </section> <footer id="contact"> <div class="footer"> <div> <div class="logo"> Raisa <span>Shopy</span> </div> <p class="muted"> Your online shop for fashion, electronics, cosmetics and more. </p> </div> <div> <b>WhatsApp</b> <p class="muted"> +966 53 896 3076 </p> </div> </div> </footer> <script> function searchProducts(){ let search = document.getElementById("search") .value .toLowerCase(); let products = document.querySelectorAll(".product"); products.forEach(function(product){ let name = product .getAttribute("data-name") .toLowerCase(); if(name.includes(search)){ product.style.display="block"; }else{ product.style.display="none"; } }); } </script> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raisa Shopy</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f7f7f7;
+  color:#222
+}
+header{
+  background:#111;
+  color:white;
+  padding:16px 20px;
+  position:sticky;
+  top:0;
+  z-index:10
+}
+.nav{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+.logo{
+  font-size:25px;
+  font-weight:bold
+}
+.logo span{color:#ff4d8d}
+.cart-btn{
+  background:#ff4d8d;
+  border:0;
+  color:white;
+  padding:10px 17px;
+  border-radius:8px;
+  cursor:pointer
+}
+.hero{
+  background:linear-gradient(120deg,#111,#6b2145);
+  color:white;
+  padding:70px 20px;
+  text-align:center
+}
+.hero h1{
+  font-size:45px;
+  margin:0 0 15px
+}
+.hero p{
+  font-size:18px;
+  margin-bottom:25px
+}
+.shop-btn{
+  background:#ff4d8d;
+  color:white;
+  text-decoration:none;
+  padding:13px 25px;
+  border-radius:8px;
+  display:inline-block
+}
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:35px 20px
+}
+.categories{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:30px
+}
+.category{
+  background:white;
+  border:1px solid #ddd;
+  padding:12px 18px;
+  border-radius:25px;
+  cursor:pointer
+}
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px
+}
+.product{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 3px 12px #0001
+}
+.product-image{
+  height:190px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:65px;
+  background:#eee
+}
+.product-info{padding:15px}
+.product-info h3{margin:0 0 8px}
+.price{
+  font-size:20px;
+  font-weight:bold;
+  margin:10px 0
+}
+.add{
+  width:100%;
+  padding:11px;
+  border:0;
+  background:#111;
+  color:white;
+  border-radius:7px;
+  cursor:pointer
+}
+footer{
+  margin-top:40px;
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:30px
+}
+.cart{
+  position:fixed;
+  right:-400px;
+  top:0;
+  width:380px;
+  max-width:100%;
+  height:100%;
+  background:white;
+  z-index:100;
+  padding:20px;
+  box-shadow:-5px 0 20px #0003;
+  transition:.3s
+}
+.cart.open{right:0}
+.close{
+  float:right;
+  border:0;
+  background:#eee;
+  padding:8px 12px;
+  cursor:pointer
+}
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px solid #ddd;
+  padding:12px 0
+}
+.whatsapp{
+  width:100%;
+  padding:14px;
+  background:#25D366;
+  color:white;
+  border:0;
+  border-radius:8px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer
+}
+@media(max-width:800px){
+  .products{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:500px){
+  .products{grid-template-columns:1fr 1fr;gap:10px}
+  .hero h1{font-size:32px}
+  .cart{width:100%}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<div class="logo">Raisa <span>Shopy</span></div>
+<button class="cart-btn" onclick="openCart()">
+🛒 Cart (<span id="cartCount">0</span>)
+</button>
+</div>
+</header>
+
+<section class="hero">
+<h1>Welcome to Raisa Shopy</h1>
+<p>Clothes • Electronics • Cosmetics • More</p>
+<a href="#products" class="shop-btn">Shop Now</a>
+</section>
+
+<div class="container">
+
+<h2>Categories</h2>
+
+<div class="categories">
+<button class="category" onclick="showProducts('all')">🛍️ All</button>
+<button class="category" onclick="showProducts('Clothes')">👗 Clothes</button>
+<button class="category" onclick="showProducts('Electronics')">📱 Electronics</button>
+<button class="category" onclick="showProducts('Cosmetics')">💄 Cosmetics</button>
+</div>
+
+<h2 id="products">Products</h2>
+
+<div class="products" id="productList"></div>
+
+</div>
+
+<div class="cart" id="cart">
+
+<button class="close" onclick="closeCart()">✕</button>
+
+<h2>🛒 Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<h3>Total: SAR <span id="total">0</span></h3>
+
+<button class="whatsapp" onclick="sendWhatsApp()">
+📲 Order on WhatsApp
+</button>
+
+</div>
+
+<footer>
+<strong>Raisa Shopy</strong>
+<br><br>
+Clothes • Electronics • Cosmetics
+<br><br>
+© 2026 Raisa Shopy
+</footer>
+
+<script>
+
+const whatsapp="966563747461";
+
+const products=[
+
+{id:1,name:"Elegant Dress",category:"Clothes",price:89,icon:"👗"},
+{id:2,name:"Classic Handbag",category:"Clothes",price:75,icon:"👜"},
+{id:3,name:"Smart Phone",category:"Electronics",price:699,icon:"📱"},
+{id:4,name:"Wireless Earbuds",category:"Electronics",price:99,icon:"🎧"},
+{id:5,name:"Smart Watch",category:"Electronics",price:149,icon:"⌚"},
+{id:6,name:"Beauty Makeup Set",category:"Cosmetics",price:59,icon:"💄"},
+{id:7,name:"Perfume",category:"Cosmetics",price:85,icon:"🌸"},
+{id:8,name:"Skin Care Set",category:"Cosmetics",price:69,icon:"🧴"}
+
+];
+
+let cart=[];
+
+function showProducts(category="all"){
+
+let list=products.filter(p =>
+category==="all" || p.category===category
+);
+
+document.getElementById("productList").innerHTML=list.map(p=>`
+
+<div class="product">
+
+<div class="product-image">${p.icon}</div>
+
+<div class="product-info">
+
+<h3>${p.name}</h3>
+
+<div>${p.category}</div>
+
+<div class="price">SAR ${p.price}</div>
+
+<button class="add" onclick="addToCart(${p.id})">
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+function addToCart(id){
+
+let product=products.find(p=>p.id===id);
+
+cart.push(product);
+
+updateCart();
+
+openCart();
+
+}
+
+function updateCart(){
+
+document.getElementById("cartCount").innerText=cart.length;
+
+let total=0;
+
+document.getElementById("cartItems").innerHTML=
+
+cart.length ?
+
+cart.map((p,i)=>{
+
+total+=p.price;
+
+return `
+
+<div class="cart-item">
+
+<span>${p.icon} ${p.name}</span>
+
+<strong>SAR ${p.price}</strong>
+
+</div>
+
+`;
+
+}).join("") :
+
+"<p>Your cart is empty.</p>";
+
+document.getElementById("total").innerText=total;
+
+}
+
+function openCart(){
+document.getElementById("cart").classList.add("open");
+}
+
+function closeCart(){
+document.getElementById("cart").classList.remove("open");
+}
+
+function sendWhatsApp(){
+
+if(cart.length===0){
+
+alert("Please add a product first.");
+
+return;
+
+}
+
+let message="Hello Raisa Shopy!%0A%0AI would like to order:%0A%0A";
+
+let total=0;
+
+cart.forEach(p=>{
+
+message+=
+"• "+p.name+
+" - SAR "+p.price+
+"%0A";
+
+total+=p.price;
+
+});
+
+message+=
+"%0ATotal: SAR "+total+
+"%0A%0APlease confirm my order.";
+
+window.open(
+"https://wa.me/"+whatsapp+"?text="+message,
+"_blank"
+);
+
+}
+
+showProducts();
+
+</script>
+
+</body>
+</html>
