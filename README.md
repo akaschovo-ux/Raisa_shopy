@@ -1,2 +1,1438 @@
-# Raisa_shopy
-Raisa Shopy - Professional Online Shop for Clothes, Electronics, Cosmetics and More
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raisa Shopy</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f7f7f7;
+  color:#222;
+}
+
+header{
+  background:#111;
+  color:white;
+  padding:15px 20px;
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.nav{
+  max-width:1150px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#ff4d8d;
+}
+
+button{
+  cursor:pointer;
+}
+
+.cartBtn,
+.adminBtn{
+  border:0;
+  padding:10px 15px;
+  border-radius:7px;
+  margin-left:5px;
+}
+
+.cartBtn{
+  background:#ff4d8d;
+  color:white;
+}
+
+.adminBtn{
+  background:white;
+  color:#111;
+}
+
+.hero{
+  background:linear-gradient(120deg,#111,#6b2145);
+  color:white;
+  text-align:center;
+  padding:65px 20px;
+}
+
+.hero h1{
+  font-size:44px;
+  margin:0 0 12px;
+}
+
+.hero p{
+  font-size:18px;
+}
+
+.shop{
+  background:#ff4d8d;
+  color:white;
+  border:0;
+  padding:13px 25px;
+  border-radius:8px;
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
+  padding:35px 20px;
+}
+
+.categories{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+
+.categories button{
+  background:white;
+  border:1px solid #ddd;
+  padding:10px 17px;
+  border-radius:25px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.card{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 3px 12px #0001;
+}
+
+.pic{
+  height:190px;
+  background:#eee;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:65px;
+}
+
+.pic img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.info{
+  padding:15px;
+}
+
+.info h3{
+  margin:0 0 7px;
+}
+
+.oldPrice{
+  text-decoration:line-through;
+  color:#888;
+  margin-right:7px;
+}
+
+.newPrice{
+  font-weight:bold;
+  font-size:20px;
+}
+
+.discount{
+  display:inline-block;
+  background:#ff4d8d;
+  color:white;
+  padding:4px 7px;
+  border-radius:5px;
+  font-size:12px;
+  margin-left:6px;
+}
+
+.add{
+  width:100%;
+  padding:11px;
+  border:0;
+  background:#111;
+  color:white;
+  border-radius:7px;
+  margin-top:12px;
+}
+
+.panel{
+  display:none;
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  margin-bottom:30px;
+  box-shadow:0 3px 15px #0001;
+}
+
+.panel.show{
+  display:block;
+}
+
+input,
+select{
+  width:100%;
+  padding:12px;
+  margin:6px 0 12px;
+  border:1px solid #ddd;
+  border-radius:7px;
+}
+
+.primary{
+  background:#ff4d8d;
+  color:white;
+  border:0;
+  padding:12px 18px;
+  border-radius:7px;
+}
+
+.danger{
+  background:#d33;
+  color:white;
+  border:0;
+  padding:7px 10px;
+  border-radius:5px;
+}
+
+.login{
+  padding:15px;
+  background:#f3f3f3;
+  border-radius:8px;
+}
+
+.adminProducts{
+  margin-top:20px;
+}
+
+.adminRow{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #eee;
+  padding:12px 0;
+  gap:10px;
+}
+
+.preview{
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius:10px;
+  display:none;
+  margin-bottom:15px;
+}
+
+.cart{
+  position:fixed;
+  right:-410px;
+  top:0;
+  width:390px;
+  max-width:100%;
+  height:100vh;
+  background:white;
+  z-index:50;
+  padding:20px;
+  box-shadow:-5px 0 20px #0003;
+  transition:.3s;
+  overflow-y:auto;
+}
+
+.cart.open{
+  right:0;
+}
+
+.close{
+  float:right;
+  border:0;
+  padding:8px 12px;
+  background:#eee;
+}
+
+.cartItem{
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px solid #ddd;
+  padding:12px 0;
+  gap:10px;
+}
+
+.whatsapp{
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:8px;
+  background:#25D366;
+  color:white;
+  font-weight:bold;
+  font-size:16px;
+}
+
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:30px;
+  margin-top:40px;
+}
+
+@media(max-width:850px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:500px){
+  .products{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .cart{
+    width:100%;
+  }
+
+  .nav{
+    gap:5px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+
+<div class="logo">
+Raisa <span>Shopy</span>
+</div>
+
+<div>
+<button class="adminBtn" onclick="toggleAdmin()">Admin</button>
+
+<button class="cartBtn" onclick="openCart()">
+🛒 Cart (<span id="cartCount">0</span>)
+</button>
+</div>
+
+</div>
+</header>
+
+
+<section class="hero">
+
+<h1>Welcome to Raisa Shopy</h1>
+
+<p>
+Clothes • Electronics • Cosmetics • More
+</p>
+
+<button class="shop" onclick="document.getElementById('products').scrollIntoView()">
+Shop Now
+</button>
+
+</section>
+
+
+<main class="container">
+
+
+<!-- ADMIN -->
+
+<div id="adminPanel" class="panel">
+
+<h2>🔐 Admin Panel</h2>
+
+
+<div id="loginBox" class="login">
+
+<h3>Admin Login</h3>
+
+<input
+id="email"
+type="email"
+placeholder="Admin email">
+
+<input
+id="password"
+type="password"
+placeholder="Password">
+
+<button class="primary" onclick="login()">
+Login
+</button>
+
+<p id="loginMsg"></p>
+
+</div>
+
+
+<div id="adminArea" style="display:none">
+
+<h3>➕ Add Product</h3>
+
+
+<label>Product Photo</label>
+
+<input
+id="pimage"
+type="file"
+accept="image/*"
+onchange="previewImage(event)">
+
+<img id="imagePreview" class="preview">
+
+
+<label>Product Name</label>
+
+<input
+id="pname"
+placeholder="Product name">
+
+
+<label>Previous Price (SAR)</label>
+
+<input
+id="poldprice"
+type="number"
+placeholder="Example: 100"
+oninput="calculateDiscount()">
+
+
+<label>Current Price (SAR)</label>
+
+<input
+id="pprice"
+type="number"
+placeholder="Example: 75"
+oninput="calculateDiscount()">
+
+
+<p>
+Discount:
+<strong id="discountPreview">0% OFF</strong>
+</p>
+
+
+<label>Category</label>
+
+<select id="pcat">
+
+<option value="Clothes">
+Clothes
+</option>
+
+<option value="Electronics">
+Electronics
+</option>
+
+<option value="Cosmetics">
+Cosmetics
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
+
+
+<button class="primary" onclick="addProduct()">
+➕ Add Product
+</button>
+
+<button class="danger" onclick="logout()">
+Logout
+</button>
+
+
+<h3>Product List</h3>
+
+<div id="adminProducts" class="adminProducts">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CATEGORY -->
+
+<h2>Shop by Category</h2>
+
+<div class="categories">
+
+<button onclick="filterProducts('all')">
+🛍️ All
+</button>
+
+<button onclick="filterProducts('Clothes')">
+👗 Clothes
+</button>
+
+<button onclick="filterProducts('Electronics')">
+📱 Electronics
+</button>
+
+<button onclick="filterProducts('Cosmetics')">
+💄 Cosmetics
+</button>
+
+<button onclick="filterProducts('Other')">
+📦 Other
+</button>
+
+</div>
+
+
+<h2 id="products">
+Products
+</h2>
+
+<div
+class="products"
+id="productList">
+</div>
+
+
+</main>
+
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+<button class="close" onclick="closeCart()">
+✕
+</button>
+
+<h2>🛒 Your Cart</h2>
+
+<div id="cartItems">
+</div>
+
+<h3>
+Total: SAR <span id="total">0.00</span>
+</h3>
+
+<button
+class="whatsapp"
+onclick="sendWhatsApp()">
+
+📲 Order on WhatsApp
+
+</button>
+
+</div>
+
+
+<footer>
+
+<strong>Raisa Shopy</strong>
+
+<br><br>
+
+Clothes • Electronics • Cosmetics • More
+
+<br><br>
+
+WhatsApp: +966 56 374 7461
+
+<br><br>
+
+© 2026 Raisa Shopy
+
+</footer>
+
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getAuth,
+signInWithEmailAndPassword,
+onAuthStateChanged,
+signOut
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs,
+deleteDoc,
+doc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* FIREBASE */
+
+const firebaseConfig = {
+
+apiKey:
+"AIzaSyD9MAyUuWZLXT3kaknKOpqLRGlOAEgL9_A",
+
+authDomain:
+"raisashopy-7770b.firebaseapp.com",
+
+projectId:
+"raisashopy-7770b",
+
+storageBucket:
+"raisashopy-7770b.firebasestorage.app",
+
+messagingSenderId:
+"253782389918",
+
+appId:
+"1:253782389918:web:350ac5cb977aa706f1378f",
+
+measurementId:
+"G-SCXELR780T"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+const productsRef = collection(db,"products");
+
+
+let products = [];
+
+let cart = [];
+
+let currentCategory = "all";
+
+
+const whatsapp =
+"966563747461";
+
+
+/* ADMIN PANEL */
+
+window.toggleAdmin = function(){
+
+document
+.getElementById("adminPanel")
+.classList.toggle("show");
+
+};
+
+
+/* LOGIN */
+
+window.login = async function(){
+
+const email =
+document.getElementById("email").value.trim();
+
+const password =
+document.getElementById("password").value;
+
+const msg =
+document.getElementById("loginMsg");
+
+try{
+
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+msg.innerText =
+"Login successful!";
+
+}catch(error){
+
+console.error(error);
+
+msg.innerText =
+"Login failed. Check email and password.";
+
+}
+
+};
+
+
+/* LOGOUT */
+
+window.logout = function(){
+
+signOut(auth);
+
+};
+
+
+/* AUTH STATE */
+
+onAuthStateChanged(auth,user=>{
+
+if(user){
+
+document.getElementById("loginBox").style.display =
+"none";
+
+document.getElementById("adminArea").style.display =
+"block";
+
+renderAdmin();
+
+}else{
+
+document.getElementById("loginBox").style.display =
+"block";
+
+document.getElementById("adminArea").style.display =
+"none";
+
+}
+
+});
+
+
+/* IMAGE PREVIEW */
+
+window.previewImage = function(event){
+
+const file =
+event.target.files[0];
+
+const preview =
+document.getElementById("imagePreview");
+
+if(!file){
+
+preview.style.display="none";
+
+return;
+
+}
+
+const reader =
+new FileReader();
+
+reader.onload=function(e){
+
+preview.src=e.target.result;
+
+preview.style.display="block";
+
+};
+
+reader.readAsDataURL(file);
+
+};
+
+
+/* DISCOUNT */
+
+window.calculateDiscount = function(){
+
+const oldPrice =
+Number(document.getElementById("poldprice").value);
+
+const currentPrice =
+Number(document.getElementById("pprice").value);
+
+let discount = 0;
+
+if(oldPrice > currentPrice && currentPrice > 0){
+
+discount =
+Math.round(
+((oldPrice-currentPrice)/oldPrice)*100
+);
+
+}
+
+document.getElementById("discountPreview").innerText =
+discount + "% OFF";
+
+};
+
+
+/* COMPRESS IMAGE */
+
+function compressImage(file){
+
+return new Promise((resolve,reject)=>{
+
+const reader = new FileReader();
+
+reader.onload=function(event){
+
+const img = new Image();
+
+img.onload=function(){
+
+const canvas =
+document.createElement("canvas");
+
+const maxSize = 800;
+
+let width = img.width;
+
+let height = img.height;
+
+
+if(width > height){
+
+if(width > maxSize){
+
+height =
+height * maxSize / width;
+
+width = maxSize;
+
+}
+
+}else{
+
+if(height > maxSize){
+
+width =
+width * maxSize / height;
+
+height = maxSize;
+
+}
+
+}
+
+
+canvas.width = width;
+
+canvas.height = height;
+
+
+const ctx =
+canvas.getContext("2d");
+
+ctx.drawImage(
+img,
+0,
+0,
+width,
+height
+);
+
+
+resolve(
+canvas.toDataURL(
+"image/jpeg",
+0.72
+)
+);
+
+};
+
+img.onerror=reject;
+
+img.src=event.target.result;
+
+};
+
+reader.onerror=reject;
+
+reader.readAsDataURL(file);
+
+});
+
+}
+
+
+/* ADD PRODUCT */
+
+window.addProduct = async function(){
+
+const name =
+document.getElementById("pname").value.trim();
+
+const oldPrice =
+Number(document.getElementById("poldprice").value);
+
+const price =
+Number(document.getElementById("pprice").value);
+
+const category =
+document.getElementById("pcat").value;
+
+const file =
+document.getElementById("pimage").files[0];
+
+
+if(!name || !price){
+
+alert(
+"Please enter product name and current price."
+);
+
+return;
+
+}
+
+
+if(oldPrice > 0 && oldPrice < price){
+
+alert(
+"Previous price cannot be lower than current price."
+);
+
+return;
+
+}
+
+
+let image = "";
+
+if(file){
+
+if(file.size > 5 * 1024 * 1024){
+
+alert(
+"Please choose an image smaller than 5 MB."
+);
+
+return;
+
+}
+
+try{
+
+image =
+await compressImage(file);
+
+}catch(error){
+
+alert("Image processing failed.");
+
+return;
+
+}
+
+}
+
+
+let discount = 0;
+
+if(oldPrice > price){
+
+discount =
+Math.round(
+((oldPrice-price)/oldPrice)*100
+);
+
+}
+
+
+try{
+
+await addDoc(productsRef,{
+
+name:name,
+
+oldPrice:oldPrice,
+
+price:price,
+
+discount:discount,
+
+category:category,
+
+image:image,
+
+createdAt:Date.now()
+
+});
+
+
+alert(
+"Product added successfully!"
+);
+
+
+/* CLEAR FORM */
+
+document.getElementById("pname").value="";
+
+document.getElementById("poldprice").value="";
+
+document.getElementById("pprice").value="";
+
+document.getElementById("pimage").value="";
+
+document.getElementById("imagePreview").style.display="none";
+
+document.getElementById("discountPreview").innerText="0% OFF";
+
+
+await loadProducts();
+
+}catch(error){
+
+console.error(error);
+
+alert(
+"Could not add product. Check Firestore permissions."
+);
+
+}
+
+};
+
+
+/* LOAD PRODUCTS */
+
+async function loadProducts(){
+
+try{
+
+const snap =
+await getDocs(productsRef);
+
+products=[];
+
+snap.forEach(item=>{
+
+products.push({
+
+id:item.id,
+
+...item.data()
+
+});
+
+});
+
+renderProducts();
+
+renderAdmin();
+
+}catch(error){
+
+console.error(error);
+
+document.getElementById("productList").innerHTML =
+"<p>Unable to load products.</p>";
+
+}
+
+}
+
+
+/* PRODUCT DISPLAY */
+
+function renderProducts(){
+
+const list =
+products.filter(p=>
+currentCategory==="all" ||
+p.category===currentCategory
+);
+
+
+if(!list.length){
+
+document.getElementById("productList").innerHTML =
+"<p>No products added yet.</p>";
+
+return;
+
+}
+
+
+document.getElementById("productList").innerHTML =
+
+list.map(p=>{
+
+const oldPrice =
+Number(p.oldPrice || 0);
+
+const price =
+Number(p.price || 0);
+
+const discount =
+Number(
+p.discount ||
+(
+oldPrice > price
+?
+Math.round(
+((oldPrice-price)/oldPrice)*100
+)
+:
+0
+)
+);
+
+
+return `
+
+<div class="card">
+
+<div class="pic">
+
+${
+p.image
+?
+`<img src="${p.image}" alt="${escapeHtml(p.name)}">`
+:
+`🛍️`
+}
+
+</div>
+
+<div class="info">
+
+<h3>
+${escapeHtml(p.name || "Product")}
+</h3>
+
+<div>
+${escapeHtml(p.category || "")}
+</div>
+
+<div style="margin-top:10px">
+
+${
+oldPrice > price
+?
+`
+<span class="oldPrice">
+SAR ${oldPrice.toFixed(2)}
+</span>
+
+<span class="newPrice">
+SAR ${price.toFixed(2)}
+</span>
+
+<span class="discount">
+${discount}% OFF
+</span>
+`
+:
+`
+<span class="newPrice">
+SAR ${price.toFixed(2)}
+</span>
+`
+}
+
+</div>
+
+<button
+class="add"
+onclick="addCart('${p.id}')">
+
+Add to Cart
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+
+/* ESCAPE HTML */
+
+function escapeHtml(value){
+
+return String(value)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* CATEGORY FILTER */
+
+window.filterProducts = function(category){
+
+currentCategory = category;
+
+renderProducts();
+
+};
+
+
+/* ADMIN PRODUCT LIST */
+
+function renderAdmin(){
+
+const box =
+document.getElementById("adminProducts");
+
+if(!box) return;
+
+
+if(!products.length){
+
+box.innerHTML =
+"<p>No products yet.</p>";
+
+return;
+
+}
+
+
+box.innerHTML =
+
+products.map(p=>`
+
+<div class="adminRow">
+
+<div>
+
+<strong>
+${escapeHtml(p.name || "Product")}
+</strong>
+
+<br>
+
+SAR ${Number(p.price || 0).toFixed(2)}
+•
+${escapeHtml(p.category || "")}
+
+</div>
+
+<button
+class="danger"
+onclick="deleteProduct('${p.id}')">
+
+Delete
+
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* DELETE PRODUCT */
+
+window.deleteProduct = async function(id){
+
+if(!confirm("Delete this product?")) return;
+
+try{
+
+await deleteDoc(
+doc(db,"products",id)
+);
+
+await loadProducts();
+
+}catch(error){
+
+console.error(error);
+
+alert("Could not delete product.");
+
+}
+
+};
+
+
+/* ADD TO CART */
+
+window.addCart = function(id){
+
+const product =
+products.find(p=>p.id===id);
+
+if(!product) return;
+
+cart.push(product);
+
+updateCart();
+
+openCart();
+
+};
+
+
+/* UPDATE CART */
+
+function updateCart(){
+
+document.getElementById("cartCount").innerText =
+cart.length;
+
+let total = 0;
+
+
+if(!cart.length){
+
+document.getElementById("cartItems").innerHTML =
+"<p>Your cart is empty.</p>";
+
+}else{
+
+document.getElementById("cartItems").innerHTML =
+
+cart.map(p=>{
+
+const price =
+Number(p.price || 0);
+
+total += price;
+
+return `
+
+<div class="cartItem">
+
+<span>
+${escapeHtml(p.name || "Product")}
+</span>
+
+<strong>
+SAR ${price.toFixed(2)}
+</strong>
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+
+document.getElementById("total").innerText =
+total.toFixed(2);
+
+}
+
+
+/* OPEN CART */
+
+window.openCart = function(){
+
+document
+.getElementById("cart")
+.classList.add("open");
+
+};
+
+
+/* CLOSE CART */
+
+window.closeCart = function(){
+
+document
+.getElementById("cart")
+.classList.remove("open");
+
+};
+
+
+/* WHATSAPP */
+
+window.sendWhatsApp = function(){
+
+if(!cart.length){
+
+alert(
+"Please add a product first."
+);
+
+return;
+
+}
+
+
+let message =
+"Hello Raisa Shopy!%0A%0AI would like to order:%0A%0A";
+
+let total = 0;
+
+
+cart.forEach(p=>{
+
+const price =
+Number(p.price || 0);
+
+message +=
+"• " +
+p.name +
+" - SAR " +
+price.toFixed(2) +
+"%0A";
+
+total += price;
+
+});
+
+
+message +=
+"%0ATotal: SAR " +
+total.toFixed(2) +
+"%0A%0APlease confirm my order.";
+
+
+window.open(
+"https://wa.me/" +
+whatsapp +
+"?text=" +
+message,
+"_blank"
+);
+
+};
+
+
+/* START */
+
+loadProducts();
+
+</script>
+
+</body>
+</html>
