@@ -2,173 +2,55 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Raisa Shopy</title>
 
 <style>
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f7f7f7;
-  color:#222
-}
-header{
-  background:#111;
-  color:white;
-  padding:16px 20px;
-  position:sticky;
-  top:0;
-  z-index:10
-}
-.nav{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center
-}
-.logo{
-  font-size:25px;
-  font-weight:bold
-}
-.logo span{color:#ff4d8d}
-.cart-btn{
-  background:#ff4d8d;
-  border:0;
-  color:white;
-  padding:10px 17px;
-  border-radius:8px;
-  cursor:pointer
-}
-.hero{
-  background:linear-gradient(120deg,#111,#6b2145);
-  color:white;
-  padding:70px 20px;
-  text-align:center
-}
-.hero h1{
-  font-size:45px;
-  margin:0 0 15px
-}
-.hero p{
-  font-size:18px;
-  margin-bottom:25px
-}
-.shop-btn{
-  background:#ff4d8d;
-  color:white;
-  text-decoration:none;
-  padding:13px 25px;
-  border-radius:8px;
-  display:inline-block
-}
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:35px 20px
-}
-.categories{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-bottom:30px
-}
-.category{
-  background:white;
-  border:1px solid #ddd;
-  padding:12px 18px;
-  border-radius:25px;
-  cursor:pointer
-}
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px
-}
-.product{
-  background:white;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 3px 12px #0001
-}
-.product-image{
-  height:190px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:65px;
-  background:#eee
-}
-.product-info{padding:15px}
-.product-info h3{margin:0 0 8px}
-.price{
-  font-size:20px;
-  font-weight:bold;
-  margin:10px 0
-}
-.add{
-  width:100%;
-  padding:11px;
-  border:0;
-  background:#111;
-  color:white;
-  border-radius:7px;
-  cursor:pointer
-}
-footer{
-  margin-top:40px;
-  background:#111;
-  color:white;
-  text-align:center;
-  padding:30px
-}
-.cart{
-  position:fixed;
-  right:-400px;
-  top:0;
-  width:380px;
-  max-width:100%;
-  height:100%;
-  background:white;
-  z-index:100;
-  padding:20px;
-  box-shadow:-5px 0 20px #0003;
-  transition:.3s
-}
+body{margin:0;font-family:Arial,sans-serif;background:#f7f7f7;color:#222}
+header{background:#111;color:#fff;padding:15px 20px;position:sticky;top:0;z-index:20}
+.nav{max-width:1150px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:bold}.logo span{color:#ff4d8d}
+button{cursor:pointer}
+.cartBtn,.adminBtn{border:0;padding:10px 15px;border-radius:7px;margin-left:5px}
+.cartBtn{background:#ff4d8d;color:white}.adminBtn{background:white;color:#111}
+
+.hero{background:linear-gradient(120deg,#111,#6b2145);color:white;text-align:center;padding:65px 20px}
+.hero h1{font-size:44px;margin:0 0 12px}
+.hero p{font-size:18px}.shop{background:#ff4d8d;color:white;border:0;padding:13px 25px;border-radius:8px}
+
+.container{max-width:1150px;margin:auto;padding:35px 20px}
+.categories{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.categories button{background:white;border:1px solid #ddd;padding:10px 17px;border-radius:25px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 3px 12px #0001}
+.pic{height:190px;background:#eee;display:flex;align-items:center;justify-content:center;font-size:65px}
+.pic img{width:100%;height:100%;object-fit:cover}
+.info{padding:15px}.info h3{margin:0 0 7px}
+.price{font-weight:bold;font-size:20px;margin:10px 0}
+.add{width:100%;padding:11px;border:0;background:#111;color:white;border-radius:7px}
+
+.panel{display:none;background:white;padding:25px;border-radius:12px;margin-bottom:30px;box-shadow:0 3px 15px #0001}
+.panel.show{display:block}
+input,select{width:100%;padding:12px;margin:6px 0 12px;border:1px solid #ddd;border-radius:7px}
+.primary{background:#ff4d8d;color:white;border:0;padding:12px 18px;border-radius:7px}
+.danger{background:#d33;color:white;border:0;padding:7px 10px;border-radius:5px}
+.adminProducts{margin-top:20px}
+.adminRow{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;padding:12px 0;gap:10px}
+
+.cart{position:fixed;right:-410px;top:0;width:390px;max-width:100%;height:100vh;background:white;z-index:50;padding:20px;box-shadow:-5px 0 20px #0003;transition:.3s}
 .cart.open{right:0}
-.close{
-  float:right;
-  border:0;
-  background:#eee;
-  padding:8px 12px;
-  cursor:pointer
-}
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  border-bottom:1px solid #ddd;
-  padding:12px 0
-}
-.whatsapp{
-  width:100%;
-  padding:14px;
-  background:#25D366;
-  color:white;
-  border:0;
-  border-radius:8px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer
-}
-@media(max-width:800px){
-  .products{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:500px){
-  .products{grid-template-columns:1fr 1fr;gap:10px}
-  .hero h1{font-size:32px}
-  .cart{width:100%}
-}
+.cartItem{display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:12px 0}
+.close{float:right;border:0;padding:8px;background:#eee}
+.whatsapp{width:100%;padding:14px;border:0;border-radius:8px;background:#25D366;color:white;font-weight:bold}
+
+.login{display:none;margin-top:15px;padding:15px;background:#f3f3f3;border-radius:8px}
+.login.show{display:block}
+
+footer{background:#111;color:white;text-align:center;padding:30px;margin-top:40px}
+
+@media(max-width:850px){.products{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.products{grid-template-columns:1fr 1fr}.hero h1{font-size:32px}.cart{width:100%}}
 </style>
 </head>
 
@@ -177,115 +59,382 @@ footer{
 <header>
 <div class="nav">
 <div class="logo">Raisa <span>Shopy</span></div>
-<button class="cart-btn" onclick="openCart()">
-🛒 Cart (<span id="cartCount">0</span>)
-</button>
+<div>
+<button class="adminBtn" onclick="toggleAdmin()">Admin</button>
+<button class="cartBtn" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button>
+</div>
 </div>
 </header>
 
 <section class="hero">
 <h1>Welcome to Raisa Shopy</h1>
 <p>Clothes • Electronics • Cosmetics • More</p>
-<a href="#products" class="shop-btn">Shop Now</a>
+<button class="shop" onclick="document.getElementById('products').scrollIntoView()">Shop Now</button>
 </section>
 
-<div class="container">
+<main class="container">
 
-<h2>Categories</h2>
+<div id="adminPanel" class="panel">
+
+<h2>🔐 Admin Panel</h2>
+
+<div id="loginBox" class="login show">
+
+<h3>Admin Login</h3>
+
+<input id="email" type="email" placeholder="Admin email">
+<input id="password" type="password" placeholder="Password">
+
+<button class="primary" onclick="login()">Login</button>
+
+<p id="loginMsg"></p>
+
+</div>
+
+<div id="adminArea" style="display:none">
+
+<h3>Add Product</h3>
+
+<input id="pname" placeholder="Product name">
+
+<input id="pprice" type="number" placeholder="Price in SAR">
+
+<select id="pcat">
+<option value="Clothes">Clothes</option>
+<option value="Electronics">Electronics</option>
+<option value="Cosmetics">Cosmetics</option>
+<option value="Other">Other</option>
+</select>
+
+<input id="pimage" placeholder="Image URL (optional)">
+
+<button class="primary" onclick="addProduct()">➕ Add Product</button>
+
+<button class="danger" onclick="logout()">Logout</button>
+
+<h3>Product List</h3>
+<div id="adminProducts" class="adminProducts"></div>
+
+</div>
+</div>
+
+<h2>Shop by Category</h2>
 
 <div class="categories">
-<button class="category" onclick="showProducts('all')">🛍️ All</button>
-<button class="category" onclick="showProducts('Clothes')">👗 Clothes</button>
-<button class="category" onclick="showProducts('Electronics')">📱 Electronics</button>
-<button class="category" onclick="showProducts('Cosmetics')">💄 Cosmetics</button>
+<button onclick="filterProducts('all')">🛍️ All</button>
+<button onclick="filterProducts('Clothes')">👗 Clothes</button>
+<button onclick="filterProducts('Electronics')">📱 Electronics</button>
+<button onclick="filterProducts('Cosmetics')">💄 Cosmetics</button>
+<button onclick="filterProducts('Other')">📦 Other</button>
 </div>
 
 <h2 id="products">Products</h2>
 
 <div class="products" id="productList"></div>
 
-</div>
+</main>
 
 <div class="cart" id="cart">
-
 <button class="close" onclick="closeCart()">✕</button>
-
 <h2>🛒 Your Cart</h2>
-
 <div id="cartItems"></div>
-
-<h3>Total: SAR <span id="total">0</span></h3>
-
-<button class="whatsapp" onclick="sendWhatsApp()">
-📲 Order on WhatsApp
-</button>
-
+<h3>Total: SAR <span id="total">0.00</span></h3>
+<button class="whatsapp" onclick="sendWhatsApp()">📲 Order on WhatsApp</button>
 </div>
 
 <footer>
 <strong>Raisa Shopy</strong>
 <br><br>
-Clothes • Electronics • Cosmetics
+Clothes • Electronics • Cosmetics • More
+<br><br>
+WhatsApp: +966 56 374 7461
 <br><br>
 © 2026 Raisa Shopy
 </footer>
 
-<script>
+<script type="module">
 
-const whatsapp="966563747461";
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-const products=[
+import {
+getAuth,
+signInWithEmailAndPassword,
+onAuthStateChanged,
+signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-{id:1,name:"Elegant Dress",category:"Clothes",price:89,icon:"👗"},
-{id:2,name:"Classic Handbag",category:"Clothes",price:75,icon:"👜"},
-{id:3,name:"Smart Phone",category:"Electronics",price:699,icon:"📱"},
-{id:4,name:"Wireless Earbuds",category:"Electronics",price:99,icon:"🎧"},
-{id:5,name:"Smart Watch",category:"Electronics",price:149,icon:"⌚"},
-{id:6,name:"Beauty Makeup Set",category:"Cosmetics",price:59,icon:"💄"},
-{id:7,name:"Perfume",category:"Cosmetics",price:85,icon:"🌸"},
-{id:8,name:"Skin Care Set",category:"Cosmetics",price:69,icon:"🧴"}
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs,
+deleteDoc,
+doc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-];
 
+const firebaseConfig = {
+
+apiKey:"AIzaSyD9MAyUuWZLXT3kaknKOpqLRGlOAEgL9_A",
+
+authDomain:"raisashopy-7770b.firebaseapp.com",
+
+projectId:"raisashopy-7770b",
+
+storageBucket:"raisashopy-7770b.firebasestorage.app",
+
+messagingSenderId:"253782389918",
+
+appId:"1:253782389918:web:350ac5cb977aa706f1378f",
+
+measurementId:"G-SCXELR780T"
+
+};
+
+
+const app=initializeApp(firebaseConfig);
+
+const auth=getAuth(app);
+
+const db=getFirestore(app);
+
+const productsRef=collection(db,"products");
+
+let products=[];
 let cart=[];
+let currentCategory="all";
 
-function showProducts(category="all"){
 
-let list=products.filter(p =>
-category==="all" || p.category===category
+window.toggleAdmin=function(){
+
+document.getElementById("adminPanel").classList.toggle("show");
+
+};
+
+
+window.login=async function(){
+
+const email=document.getElementById("email").value;
+
+const password=document.getElementById("password").value;
+
+try{
+
+await signInWithEmailAndPassword(auth,email,password);
+
+document.getElementById("loginMsg").innerText="Login successful!";
+
+}catch(e){
+
+document.getElementById("loginMsg").innerText="Login failed. Check email and password.";
+
+}
+
+};
+
+
+window.logout=function(){
+
+signOut(auth);
+
+};
+
+
+onAuthStateChanged(auth,user=>{
+
+if(user){
+
+document.getElementById("loginBox").style.display="none";
+
+document.getElementById("adminArea").style.display="block";
+
+loadProducts();
+
+}else{
+
+document.getElementById("loginBox").style.display="block";
+
+document.getElementById("adminArea").style.display="none";
+
+}
+
+});
+
+
+async function loadProducts(){
+
+const snap=await getDocs(productsRef);
+
+products=[];
+
+snap.forEach(x=>{
+
+products.push({id:x.id,...x.data()});
+
+});
+
+renderProducts();
+
+renderAdmin();
+
+}
+
+
+function renderProducts(){
+
+let list=products.filter(p=>
+currentCategory==="all" || p.category===currentCategory
 );
 
-document.getElementById("productList").innerHTML=list.map(p=>`
+document.getElementById("productList").innerHTML=
 
-<div class="product">
+list.length ?
 
-<div class="product-image">${p.icon}</div>
+list.map(p=>`
 
-<div class="product-info">
+<div class="card">
+
+<div class="pic">
+
+${p.image ?
+
+`<img src="${p.image}" alt="${p.name}">` :
+
+(p.icon||"🛍️")}
+
+</div>
+
+<div class="info">
 
 <h3>${p.name}</h3>
 
 <div>${p.category}</div>
 
-<div class="price">SAR ${p.price}</div>
+<div class="price">SAR ${Number(p.price).toFixed(2)}</div>
 
-<button class="add" onclick="addToCart(${p.id})">
+<button class="add" onclick="addCart('${p.id}')">
+
 Add to Cart
+
 </button>
 
 </div>
 
 </div>
 
-`).join("");
+`).join("") :
+
+"<p>No products added yet.</p>";
 
 }
 
-function addToCart(id){
 
-let product=products.find(p=>p.id===id);
+window.filterProducts=function(cat){
 
-cart.push(product);
+currentCategory=cat;
+
+renderProducts();
+
+};
+
+
+window.addProduct=async function(){
+
+const name=document.getElementById("pname").value.trim();
+
+const price=Number(document.getElementById("pprice").value);
+
+const category=document.getElementById("pcat").value;
+
+const image=document.getElementById("pimage").value.trim();
+
+if(!name || !price){
+
+alert("Please enter product name and price.");
+
+return;
+
+}
+
+await addDoc(productsRef,{
+
+name:name,
+
+price:price,
+
+category:category,
+
+image:image,
+
+createdAt:Date.now()
+
+});
+
+document.getElementById("pname").value="";
+
+document.getElementById("pprice").value="";
+
+document.getElementById("pimage").value="";
+
+await loadProducts();
+
+alert("Product added successfully!");
+
+};
+
+
+function renderAdmin(){
+
+document.getElementById("adminProducts").innerHTML=
+
+products.length ?
+
+products.map(p=>`
+
+<div class="adminRow">
+
+<div>
+
+<strong>${p.name}</strong><br>
+
+SAR ${p.price} • ${p.category}
+
+</div>
+
+<button class="danger" onclick="deleteProduct('${p.id}')">
+
+Delete
+
+</button>
+
+</div>
+
+`).join("") :
+
+"<p>No products yet.</p>";
+
+}
+
+
+window.deleteProduct=async function(id){
+
+if(!confirm("Delete this product?"))return;
+
+await deleteDoc(doc(db,"products",id));
+
+await loadProducts();
+
+};
+
+
+window.addCart=function(id){
+
+const p=products.find(x=>x.id===id);
+
+if(p){
+
+cart.push(p);
 
 updateCart();
 
@@ -293,9 +442,12 @@ openCart();
 
 }
 
+};
+
+
 function updateCart(){
 
-document.getElementById("cartCount").innerText=cart.length;
+document.getElementById("count").innerText=cart.length;
 
 let total=0;
 
@@ -303,15 +455,15 @@ document.getElementById("cartItems").innerHTML=
 
 cart.length ?
 
-cart.map((p,i)=>{
+cart.map(p=>{
 
-total+=p.price;
+total+=Number(p.price);
 
 return `
 
-<div class="cart-item">
+<div class="cartItem">
 
-<span>${p.icon} ${p.name}</span>
+<span>${p.name}</span>
 
 <strong>SAR ${p.price}</strong>
 
@@ -323,21 +475,28 @@ return `
 
 "<p>Your cart is empty.</p>";
 
-document.getElementById("total").innerText=total;
+document.getElementById("total").innerText=total.toFixed(2);
 
 }
 
-function openCart(){
+
+window.openCart=function(){
+
 document.getElementById("cart").classList.add("open");
-}
 
-function closeCart(){
+};
+
+
+window.closeCart=function(){
+
 document.getElementById("cart").classList.remove("open");
-}
 
-function sendWhatsApp(){
+};
 
-if(cart.length===0){
+
+window.sendWhatsApp=function(){
+
+if(!cart.length){
 
 alert("Please add a product first.");
 
@@ -351,27 +510,26 @@ let total=0;
 
 cart.forEach(p=>{
 
-message+=
-"• "+p.name+
-" - SAR "+p.price+
-"%0A";
+message+="• "+p.name+" - SAR "+p.price+"%0A";
 
-total+=p.price;
+total+=Number(p.price);
 
 });
 
-message+=
-"%0ATotal: SAR "+total+
-"%0A%0APlease confirm my order.";
+message+="%0ATotal: SAR "+total+"%0A%0APlease confirm my order.";
 
 window.open(
-"https://wa.me/"+whatsapp+"?text="+message,
+
+"https://wa.me/966563747461?text="+message,
+
 "_blank"
+
 );
 
-}
+};
 
-showProducts();
+
+loadProducts();
 
 </script>
 
